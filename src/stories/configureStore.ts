@@ -1,7 +1,7 @@
 import { combineReducers, createStore, applyMiddleware, compose, Middleware, ReducersMapObject } from 'redux';
 
 declare global {
-    interface Window { devToolsExtension?: Function; }
+    interface Window { devToolsExtension?: () => void; }
 }
 
 export default function configureStore(

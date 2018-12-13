@@ -41,16 +41,8 @@ storiesOf('form fields/Text', module)
         </Provider>
     ))
     .add('TextField', () => <TextField name="textField" label="Text field" />)
-    .add('TextField: type password', () => (
-        <TextField
-            name="passwordField"
-            type="password"
-            label="Password field"
-        />
-    ))
-    .add('TextAreaField', () => (
-        <TextAreaField name="textAreaField" label="Textarea field" />
-    ));
+    .add('TextField: type password', () => <TextField name="passwordField" type="password" label="Password field" />)
+    .add('TextAreaField', () => <TextAreaField name="textAreaField" label="Textarea field" />);
 
 storiesOf('form fields/Number', module)
     .addDecorator(story => (
@@ -58,16 +50,12 @@ storiesOf('form fields/Number', module)
             <Form>{story()}</Form>
         </Provider>
     ))
-    .add('NumberField', () => (
-        <NumberField name="numberField" label="Number field" />
-    ));
+    .add('NumberField', () => <NumberField name="numberField" label="Number field" />);
 
 storiesOf('form fields/Select', module)
     .addDecorator(story => (
         <Provider store={store}>
-            <Form initialValues={{ multiSelectField: ['5', '6'] }}>
-                {story()}
-            </Form>
+            <Form initialValues={{ multiSelectField: ['5', '6'] }}>{story()}</Form>
         </Provider>
     ))
     .add('SelectField', () => (
@@ -98,9 +86,7 @@ storiesOf('form fields/Select', module)
 storiesOf('form fields/Checkbox', module)
     .addDecorator(story => (
         <Provider store={store}>
-            <Form initialValues={{ checkboxGroupField: ['selected'] }}>
-                {story()}
-            </Form>
+            <Form initialValues={{ checkboxGroupField: ['selected'] }}>{story()}</Form>
         </Provider>
     ))
     .add('CheckboxGroupField', () => (
@@ -176,16 +162,9 @@ storiesOf('form fields/Switch', module)
             <Form initialValues={{ checkedSwitchField: true }}>{story()}</Form>
         </Provider>
     ))
-    .add('SwitchField', () => (
-        <SwitchField name="switchField" label="Switch field" />
-    ))
+    .add('SwitchField', () => <SwitchField name="switchField" label="Switch field" />)
     .add('CheckedSwitchField', () => (
-        <SwitchField
-            name="checkedSwitchField"
-            label="Checked switch field"
-            checkedChildren="+"
-            unCheckedChildren="-"
-        />
+        <SwitchField name="checkedSwitchField" label="Checked switch field" checkedChildren="+" unCheckedChildren="-" />
     ));
 
 storiesOf('form fields/Slider', module)
@@ -194,14 +173,7 @@ storiesOf('form fields/Slider', module)
             <Form initialValues={{ sliderField: 50 }}>{story()}</Form>
         </Provider>
     ))
-    .add('SliderField', () => (
-        <SliderField
-            name="sliderField"
-            label="Slider field"
-            min={0}
-            max={100}
-        />
-    ))
+    .add('SliderField', () => <SliderField name="sliderField" label="Slider field" min={0} max={100} />)
     .add('MarkedSliderField', () => (
         <SliderField
             name="markedSliderField"
@@ -213,15 +185,18 @@ storiesOf('form fields/Slider', module)
         />
     ));
 
-const validateRequired = (fieldName: string) => (values: {[key: string]: any}, { intl }: { intl: InjectedIntl }): FormErrors => {
-    const errors: {[key: string]: string} = {};
+const validateRequired = (fieldName: string) => (
+    values: { [key: string]: any },
+    { intl }: { intl: InjectedIntl },
+): FormErrors => {
+    const errors: { [key: string]: string } = {};
 
     if (!values[fieldName]) {
         errors[fieldName] = intl.formatMessage({ id: 'field.validate.required' }, { name: fieldName });
     }
 
     return errors;
-}
+};
 const intlMessages = {
     'field.validate.required': 'Field {name} is required',
 };
@@ -236,11 +211,7 @@ storiesOf('form fields/DatePicker', module)
     ))
     .add('DatePicker', () => (
         <Form initialValues={{ datePicker: moment().toISOString() }}>
-            <DatePickerField
-                name="datePicker"
-                label="Datepicker Field"
-                displayFormat="DD/MM/YYYY"
-            />
+            <DatePickerField name="datePicker" label="Datepicker Field" displayFormat="DD/MM/YYYY" />
         </Form>
     ))
     .add('localized validation', () => (
@@ -263,11 +234,7 @@ storiesOf('form fields/TimePicker', module)
     ))
     .add('TimePicker', () => (
         <Form>
-            <TimePickerField
-                name="timePicker"
-                label="Timepicker Field"
-                displayFormat="H:mm:ss"
-            />
+            <TimePickerField name="timePicker" label="Timepicker Field" displayFormat="H:mm:ss" />
         </Form>
     ))
     .add('localized validation', () => (

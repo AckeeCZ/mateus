@@ -1,7 +1,17 @@
-import { combineReducers, createStore, applyMiddleware, compose, Middleware, ReducersMapObject } from 'redux';
+import {
+    combineReducers,
+    createStore,
+    applyMiddleware,
+    compose,
+    Middleware,
+    ReducersMapObject,
+    StoreEnhancer,
+} from 'redux';
 
 declare global {
-    interface Window { devToolsExtension?: () => void; }
+    interface Window {
+        devToolsExtension?: () => (r: any) => void;
+    }
 }
 
 export default function configureStore(
@@ -14,9 +24,8 @@ export default function configureStore(
     const middleware = applyMiddleware(...middlewares);
     const enhancer = compose(
         middleware,
-
         window.devToolsExtension ? window.devToolsExtension() : (r: any) => r,
-    );
+    ) as StoreEnhancer;
 
     const store = createStore(combineReducers(reducer), initialState, enhancer);
 

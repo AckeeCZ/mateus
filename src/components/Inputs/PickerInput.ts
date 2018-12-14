@@ -50,7 +50,7 @@ const pickerMap = customMap(
     },
 );
 
-const picker = (Picker: React.ComponentType) => createComponent(Picker, pickerMap);
+const picker = (Picker: React.ComponentType): React.ComponentType<PickerProps> => createComponent(Picker, pickerMap);
 
 const TimePickerInput = picker(TimePicker);
 const DatePickerInput = picker(DatePicker);

@@ -3,6 +3,7 @@ import React from 'react';
 import { injectIntl } from 'react-intl';
 import * as PropTypes from 'prop-types';
 import { reduxForm } from 'redux-form';
+import { action } from '@storybook/addon-actions';
 
 import Button from 'antd/lib/button';
 
@@ -24,6 +25,6 @@ export default compose(
     injectIntl,
     reduxForm({
         form: 'fieldStoriesForm',
-        onSubmit: data => console.log({ data }),
+        onSubmit: action('Form submitted'),
     }),
 )(Form);

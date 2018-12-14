@@ -1,5 +1,5 @@
 {
-    "name": "@ackee/matthew",
+    "name": "@ackee/mateus",
     "version": "0.0.1",
     "description": "Antd components as a form fields + redux-saga flow for easier handle of redux-form form's submit",
     "main": "lib/index.js",
@@ -22,7 +22,7 @@
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "https://github.com/AckeeCZ/matthew"
+        "url": "https://github.com/AckeeCZ/mateus"
     },
     "dependencies": {
         "lodash": "^4.17.11",

@@ -6,10 +6,12 @@ import { merge } from 'lodash';
 
 import { logger } from '../config';
 
-function wrapWithField<P>(
-    component: React.ComponentType<P>,
-    injectProps?: { [prop: string]: any },
-): React.SFC<P & Omit<BaseFieldProps, 'component'> & FormItemProps> {
+type BaseProps = Omit<BaseFieldProps, 'component'> & FormItemProps;
+
+function wrapWithField<Props1, Props2 = {}>(
+    component: React.ComponentType<Props1>,
+    injectProps?: ((p: Props1 & BaseProps) => Props2) | Props2,
+): React.SFC<Props1 & BaseProps> {
     return props => {
         let p = {};
         if (typeof injectProps === 'function') {
@@ -29,7 +31,9 @@ function wrapWithField<P>(
                     `Only "function" and "object" are supported. Fallbacking to an empty object.`,
             );
         }
-        return <Field component={component} {...merge(p, props)} />;
+        type MergedProps = Props1 & BaseProps & Props2;
+        const mergedProps: MergedProps = merge(p, props);
+        return <Field component={component} {...mergedProps} />;
     };
 }
 

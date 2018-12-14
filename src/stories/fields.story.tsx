@@ -47,7 +47,9 @@ storiesOf('form fields/Text', module)
 storiesOf('form fields/Number', module)
     .addDecorator(story => (
         <Provider store={store}>
-            <Form>{story()}</Form>
+            <IntlProvider locale="en" messages={{}}>
+                <Form>{story()}</Form>
+            </IntlProvider>
         </Provider>
     ))
     .add('NumberField', () => <NumberField name="numberField" label="Number field" />);
@@ -55,7 +57,9 @@ storiesOf('form fields/Number', module)
 storiesOf('form fields/Select', module)
     .addDecorator(story => (
         <Provider store={store}>
-            <Form initialValues={{ multiSelectField: ['5', '6'] }}>{story()}</Form>
+            <IntlProvider locale="en" messages={{}}>
+                <Form initialValues={{ multiSelectField: ['5', '6'] }}>{story()}</Form>
+            </IntlProvider>
         </Provider>
     ))
     .add('SelectField', () => (
@@ -86,7 +90,9 @@ storiesOf('form fields/Select', module)
 storiesOf('form fields/Checkbox', module)
     .addDecorator(story => (
         <Provider store={store}>
-            <Form initialValues={{ checkboxGroupField: ['selected'] }}>{story()}</Form>
+            <IntlProvider locale="en" messages={{}}>
+                <Form initialValues={{ checkboxGroupField: ['selected'] }}>{story()}</Form>
+            </IntlProvider>
         </Provider>
     ))
     .add('CheckboxGroupField', () => (
@@ -131,7 +137,9 @@ storiesOf('form fields/Checkbox', module)
 storiesOf('form fields/Radio', module)
     .addDecorator(story => (
         <Provider store={store}>
-            <Form initialValues={{ radioField: 1 }}>{story()}</Form>
+            <IntlProvider locale="en" messages={{}}>
+                <Form initialValues={{ radioField: 1 }}>{story()}</Form>
+            </IntlProvider>
         </Provider>
     ))
     .add('RadioField', () => (
@@ -159,7 +167,9 @@ storiesOf('form fields/Radio', module)
 storiesOf('form fields/Switch', module)
     .addDecorator(story => (
         <Provider store={store}>
-            <Form initialValues={{ checkedSwitchField: true }}>{story()}</Form>
+            <IntlProvider locale="en" messages={{}}>
+                <Form initialValues={{ checkedSwitchField: true }}>{story()}</Form>
+            </IntlProvider>
         </Provider>
     ))
     .add('SwitchField', () => <SwitchField name="switchField" label="Switch field" />)
@@ -170,7 +180,9 @@ storiesOf('form fields/Switch', module)
 storiesOf('form fields/Slider', module)
     .addDecorator(story => (
         <Provider store={store}>
-            <Form initialValues={{ sliderField: 50 }}>{story()}</Form>
+            <IntlProvider locale="en" messages={{}}>
+                <Form initialValues={{ sliderField: 50 }}>{story()}</Form>
+            </IntlProvider>
         </Provider>
     ))
     .add('SliderField', () => <SliderField name="sliderField" label="Slider field" min={0} max={100} />)

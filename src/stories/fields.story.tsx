@@ -144,7 +144,7 @@ storiesOf('form fields/Radio', module)
     ))
     .add('RadioField', () => (
         <RadioField
-            name="checkboxField"
+            name="radioField"
             label="Select field"
             options={[
                 {

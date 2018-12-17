@@ -54,37 +54,45 @@ storiesOf('form fields/Number', module)
     ))
     .add('NumberField', () => <NumberField name="numberField" label="Number field" />);
 
+const getPopupContainer = () => document.body;
+
 storiesOf('form fields/Select', module)
     .addDecorator(story => (
         <Provider store={store}>
             <IntlProvider locale="en" messages={{}}>
-                <Form initialValues={{ multiSelectField: ['5', '6'] }}>{story()}</Form>
+                {story()}
             </IntlProvider>
         </Provider>
     ))
     .add('SelectField', () => (
-        <SelectField
-            name="selectField"
-            label="Select field"
-            placeholder="Select a value"
-            options={Array.from(Array(10).keys()).map(index => ({
-                value: index,
-                label: `Option #${index}`,
-                key: index,
-            }))}
-        />
+        <Form>
+            <SelectField
+                name="selectField"
+                label="Select field"
+                placeholder="Select a value"
+                getPopupContainer={getPopupContainer} // required only in sandboxed story environment
+                options={Array.from(Array(10).keys()).map(index => ({
+                    value: index,
+                    label: `Option #${index}`,
+                    key: index,
+                }))}
+            />
+        </Form>
     ))
     .add('SelectField: multiple values', () => (
-        <SelectField
-            name="multiSelectField"
-            label="Multple value Select field"
-            mode="multiple"
-            options={Array.from(Array(10).keys()).map(index => ({
-                value: index,
-                label: `Option #${index}`,
-                key: index,
-            }))}
-        />
+        <Form initialValues={{ multiSelectField: ['5', '6'] }}>
+            <SelectField
+                name="multiSelectField"
+                label="Multple value Select field"
+                mode="multiple"
+                getPopupContainer={getPopupContainer} // required only in sandboxed story environment
+                options={Array.from(Array(10).keys()).map(index => ({
+                    value: index,
+                    label: `Option #${index}`,
+                    key: index,
+                }))}
+            />
+        </Form>
     ));
 
 storiesOf('form fields/Checkbox', module)

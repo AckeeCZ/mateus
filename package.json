@@ -25,11 +25,11 @@
         "url": "https://github.com/AckeeCZ/mateus"
     },
     "dependencies": {
+        "@types/lodash": "^4.14.119",
         "lodash": "^4.17.11",
         "moment": "^2.22.2",
         "react-display-name": "^0.2.4",
-        "redux-form-antd": "^3.1.4",
-        "@types/lodash": "^4.14.119"
+        "redux-form-antd": "^3.1.6"
     },
     "peerDependencies": {
         "antd": "^3.11.2",

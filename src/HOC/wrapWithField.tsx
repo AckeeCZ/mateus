@@ -1,39 +1,57 @@
 import React from 'react';
 import { Field, BaseFieldProps } from 'redux-form';
-import { Omit } from 'utility-types';
+// import { Partial } from 'utility-types';
 import { FormItemProps } from 'antd/lib/form';
 import { merge } from 'lodash';
 
 import { logger } from '../config';
 
-type BaseProps = Omit<BaseFieldProps, 'component'> & FormItemProps;
+type BaseProps = BaseFieldProps & FormItemProps;
 
-function wrapWithField<Props1, Props2 = {}>(
-    component: React.ComponentType<Props1>,
-    injectProps?: ((p: Props1 & BaseProps) => Props2) | Props2,
-): React.SFC<Props1 & BaseProps> {
+type InjectProps<InProps, OutProps> = (p: InProps & BaseProps) => OutProps;
+
+const isInjectProps = <InProps, OutProps>(fn: any): fn is InjectProps<InProps, OutProps> => {
+    return typeof fn === 'function';
+};
+
+function wrapWithField<ComponentProps, InjectedProps = {}>(
+    component: React.ComponentType<ComponentProps>,
+    injectProps?: InjectedProps | InjectProps<ComponentProps, InjectedProps>,
+): React.SFC<ComponentProps & BaseProps> {
     return props => {
-        let p = {};
-        if (typeof injectProps === 'function') {
-            p = injectProps(props);
-            if (typeof p !== 'object') {
-                p = {};
+        let injected = {} as InjectedProps;
+        if (isInjectProps<ComponentProps, InjectedProps>(injectProps)) {
+            injected = injectProps(props);
+            if (typeof injected !== 'object') {
+                injected = {} as InjectedProps;
                 logger.warn(
                     `injectProps function has to return an object.` +
-                        `It has returned ${typeof p}. Fallbacking to an empty object.`,
+                        `It has returned ${typeof injected}. Fallbacking to an empty object.`,
                 );
             }
         } else if (typeof injectProps === 'object') {
-            p = injectProps;
+            injected = injectProps;
         } else if (typeof injectProps !== 'undefined') {
             logger.warn(
                 `Type of injectProps is ${typeof injectProps}.` +
                     `Only "function" and "object" are supported. Fallbacking to an empty object.`,
             );
         }
-        type MergedProps = Props1 & BaseProps & Props2;
-        const mergedProps: MergedProps = merge(p, props);
-        return <Field component={component} {...mergedProps} />;
+
+        const mergedProps: InjectedProps & ComponentProps & BaseProps = merge(injected, props);
+        return (
+            <Field
+                /**
+                 * This currently only solution I found to make compilation works. It's not perfect and probably
+                 * there is some lack of typing, but without it I was receiving this error:
+                 *
+                 *    Type 'ComponentClass<ComponentProps, any>' is not assignable to type '"input"'
+                 */
+                component={component as unknown as 'input'}
+                props={undefined}
+                {...mergedProps}
+            />
+        );
     };
 }
 

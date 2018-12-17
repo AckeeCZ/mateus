@@ -176,13 +176,24 @@ storiesOf('form fields/Switch', module)
     .addDecorator(story => (
         <Provider store={store}>
             <IntlProvider locale="en" messages={{}}>
-                <Form initialValues={{ checkedSwitchField: true }}>{story()}</Form>
+                {story()}
             </IntlProvider>
         </Provider>
     ))
-    .add('SwitchField', () => <SwitchField name="switchField" label="Switch field" />)
+    .add('SwitchField', () => (
+        <Form initialValues={{}}>
+            <SwitchField name="switchField" label="Switch field" />
+        </Form>
+    ))
     .add('CheckedSwitchField', () => (
-        <SwitchField name="checkedSwitchField" label="Checked switch field" checkedChildren="+" unCheckedChildren="-" />
+        <Form initialValues={{ checkedSwitchField: true }}>
+            <SwitchField
+                name="checkedSwitchField"
+                label="Checked switch field"
+                checkedChildren="+"
+                unCheckedChildren="-"
+            />
+        </Form>
     ));
 
 storiesOf('form fields/Slider', module)

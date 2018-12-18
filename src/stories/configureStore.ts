@@ -7,14 +7,14 @@ import {
     ReducersMapObject,
     StoreEnhancer,
 } from 'redux';
-
+import { reducer as form } from 'redux-form';
 declare global {
     interface Window {
         devToolsExtension?: () => (r: any) => void;
     }
 }
 
-export default function configureStore(
+export function configureStore(
     initialState: { [key: string]: any },
     reducer: ReducersMapObject,
     ...customMiddlewares: Middleware[]
@@ -31,3 +31,9 @@ export default function configureStore(
 
     return store;
 }
+
+const reducers = {
+    form,
+};
+
+export default configureStore({}, reducers);

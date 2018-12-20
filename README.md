@@ -14,15 +14,7 @@
     * [Action creators](#action-creators)
     * [Sagas](#sagas)    
     * [Form fields](#form-fields)
-        * [Text](#field-text)
-        * [TextArea](#field-textarea)
-        * [Select](#field-select)
-        * [NumberInput](#field-numberinput)
-        * [Switch](#field-switch)
-        * [Slider](#field-slider)
-        * [Radio](#field-radio)
-        * [CheckboxGroup](#field-checkboxgroup)
-        * [DatePicker & TimePicker](#field-pickers)
+    * [HOC](#hoc)
 
 ## <a name="installation"></a>Installation
 
@@ -380,3 +372,28 @@ This is a bit confusing, because `RadioInput` is actually `RadioGroup` - in most
     import { pickerEnhancer } from '@ackee/mateus';
     ```
 
+---
+
+### <a name="hoc"></a>HOC
+
+#### `wrapWithField(component: React.Component, injectProps?: InjectPropsType): React.Component`
+
+Hight order component that wrap supplied component with redux-form's `Field` and inject extra properties into it (see `InjectPropsType`). This is useful for form fields that are not part of `@ackee/mateus`.
+* `InjectPropsType` is either an props `object` or function `(props: object): object` that receives props passed to component and returns extra props that will be also passed to component 
+
+    Example - use it fo Antd [`Rate` component](https://ant.design/components/rate/)
+
+    ```js
+    const Rate = wrapWithField(
+        AntdRate,
+        {
+            character: <Icon type="heart" />
+        }
+    );
+
+    const RateForm = ({ handleSubmit, invalid }) => (
+        <Form onSubmit={handleSubmit}>
+            <Rate />
+        </Form>
+    );
+    ```

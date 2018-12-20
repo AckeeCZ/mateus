@@ -12,6 +12,7 @@
 * [Installation](#installation)
 * [API](#api)
     * [Action creators](#action-creators)
+    * [Action types](#action-types)
     * [Sagas](#sagas)    
     * [Form fields](#form-fields)
     * [HOC](#hoc)
@@ -64,6 +65,23 @@ Using npm:
         }),
     )(UserForm);
     ```
+---
+
+### <a name="action-types"></a>Action types
+
+#### `FORM_SUBMIT`
+
+```js
+import { actionTypes } from '@ackee/mateus';
+import { takeEvery } from 'redux-saga/effects';
+
+takeEvery(actionTypes.FORM_SUBMIT, action => {
+    const { data, form } = action;
+
+    console.log('Submitted form', form);
+});
+```
+
 ---
 
 ### <a name="sagas"></a>Sagas

@@ -3,7 +3,7 @@ declare module 'redux-form-antd' {
     type MapFnc = (props: {[key: string]: any}) => {[key: string]: any};
     type ReduceFnc<P1, P2> = (allProps: P1, props: P2) => {[key: string]: any};
 
-    var reduxFormAntd: {
+    const reduxFormAntd: {
         TextField: React.ComponentType<any>;
         TextAreaField: React.ComponentType<any>;
         NumberField: React.ComponentType<any>;

@@ -6,7 +6,7 @@ import { storiesOf } from '@storybook/react';
 
 import { SelectField } from '../..';
 
-import { store, Form } from '../../stories';
+import { store, Form } from '../../../stories';
 
 const getPopupContainer = () => document.body;
 

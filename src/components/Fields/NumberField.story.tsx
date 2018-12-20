@@ -6,7 +6,7 @@ import { storiesOf } from '@storybook/react';
 
 import { NumberField } from '../..';
 
-import { store, Form } from '../../stories';
+import { store, Form } from '../../../stories';
 
 storiesOf('form fields/Number', module)
     .addDecorator(story => (

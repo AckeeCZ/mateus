@@ -38,6 +38,7 @@ module.exports = {
                 enforce: 'pre',
                 include: [
                     path.resolve(__dirname, '../src'),
+                    path.resolve(__dirname, '../stories'),
                 ]
             },
             {
@@ -45,6 +46,7 @@ module.exports = {
                 loaders: ['babel-loader'],
                 include: [
                     path.resolve(__dirname, '../src'),
+                    path.resolve(__dirname, '../stories'),
                 ]
             },
         ],

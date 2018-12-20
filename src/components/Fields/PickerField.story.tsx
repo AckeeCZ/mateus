@@ -8,7 +8,7 @@ import { storiesOf } from '@storybook/react';
 
 import { DatePickerField, TimePickerField } from '../..';
 
-import { store, Form } from '../../stories';
+import { store, Form } from '../../../stories';
 
 const validateRequired = (fieldName: string) => (
     values: { [key: string]: any },

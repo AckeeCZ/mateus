@@ -6,7 +6,7 @@ import { storiesOf } from '@storybook/react';
 
 import { TextField, TextAreaField } from '../../';
 
-import { store, Form } from '../../stories';
+import { store, Form } from '../../../stories';
 
 storiesOf('form fields/Text', module)
     .addDecorator(story => (

@@ -6,7 +6,7 @@ import { storiesOf } from '@storybook/react';
 
 import { CheckboxGroupField } from '../..';
 
-import { Form, store } from '../../stories';
+import { Form, store } from '../../../stories';
 
 storiesOf('form fields/Checkbox', module)
     .addDecorator(story => (

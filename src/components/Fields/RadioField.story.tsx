@@ -6,7 +6,7 @@ import { storiesOf } from '@storybook/react';
 
 import { RadioField } from '../..';
 
-import { store, Form } from '../../stories';
+import { store, Form } from '../../../stories';
 
 storiesOf('form fields/Radio', module)
     .addDecorator(story => (

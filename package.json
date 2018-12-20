@@ -1,6 +1,6 @@
 {
     "name": "@ackee/mateus",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "Antd components as a form fields + redux-saga flow for easier handle of redux-form form's submit",
     "main": "lib/index.js",
     "module": "es/index.js",

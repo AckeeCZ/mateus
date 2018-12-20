@@ -17,5 +17,12 @@
 	"include": [
 		"src"
     ],
-    "exclude": ["node_modules", "build", "lib"]
+    "exclude": [
+        "node_modules",
+        "build",
+        "lib",
+        "**/__tests__/**",
+        "**/*.test.*",
+        "**/*.story.*",
+    ]
 }

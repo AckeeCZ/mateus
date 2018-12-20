@@ -9,12 +9,22 @@
 
 ## Table of contents
 
-* [Instalation](#instalation)
+* [Installation](#installation)
 * [API](#api)
     * [Action creators](#action-creators)
     * [Sagas](#sagas)    
+    * [Form fields](#form-fields)
+        * [Text](#field-text)
+        * [TextArea](#field-textarea)
+        * [Select](#field-select)
+        * [NumberInput](#field-numberinput)
+        * [Switch](#field-switch)
+        * [Slider](#field-slider)
+        * [Radio](#field-radio)
+        * [CheckboxGroup](#field-checkboxgroup)
+        * [DatePicker & TimePicker](#field-pickers)
 
-## <a name="instalation"></a>Instalation
+## <a name="installation"></a>Installation
 
 Using npm:
 
@@ -214,4 +224,159 @@ export default function* () {
     ]);
 }
 ```
+---
+
+### <a name="form-fields"></a>Form fields
+
+All form fields are available either as an Antd component (eg. [TextInput](https://ant.design/components/input/)) wrapped with
+[FormItem](https://ant.design/components/form/#Form.Item) or the same, but enclosed into redux-form [Field](https://redux-form.com/7.4.2/docs/api/field.md/).
+
+#### List of fields:
+
+* [Text](#field-text)
+* [TextArea](#field-textarea)
+* [Select](#field-select)
+* [NumberInput](#field-numberinput)
+* [Switch](#field-switch)
+* [Slider](#field-slider)
+* [Radio](#field-radio)
+* [CheckboxGroup](#field-checkboxgroup)
+* [DatePicker & TimePicker](#field-pickers)
+---
+#### <a name="field-text"></a>Text
+
+* `TextInput` accept Antd [`Input` props](https://ant.design/components/input/#Input).
+* `TextField` accept same props as Input plus all the [props](https://redux-form.com/7.4.2/docs/api/field.md/#props-you-can-pass-to-code-field-code-) you can pass to redux-form Field.
+
+    ```js
+    import { TextInput, TextField } from '@ackee/mateus';
+    ```
+
+#### <a name="field-textarea"></a>TextArea
+
+* `TextAreaInput` accept Antd [`TextArea` props](https://ant.design/components/input/#Input.TextArea).
+* `TextAreaField` accept same props as Input plus all the [props](https://redux-form.com/7.4.2/docs/api/field.md/#props-you-can-pass-to-code-field-code-) you can pass to redux-form Field.
+
+    ```js
+    import { TextAreaInput, TextAreaField } from '@ackee/mateus';
+    ```
+
+#### <a name="field-select"></a>Select
+
+* `SelectInput` accept Antd [`Select` props](https://ant.design/components/input/#Input.TextArea), but instead of passing options as children components, they'are passed as an array in props.
+
+    Default name for that prop is `options` and it's shape is `{ label: ReactNode, value: string|number }`. The names can be changed by specifying `optionsKey`, `labelKey` or `valueKey` prop (look at example below).
+
+* `SelectField` accept same props as Input plus all the [props](https://redux-form.com/7.4.2/docs/api/field.md/#props-you-can-pass-to-code-field-code-) you can pass to redux-form Field.
+
+    ```js
+    import { SelectInput, SelectField } from '@ackee/mateus';
+
+    const select = (
+        <SelectInput 
+            options={[
+                { label: 'Option1': value: 1 },
+                { label: <span>Option2</span>: value: 2 },
+            ]}
+        />
+    );
+
+    const selectWithCustomNames = (
+        <SelectInput 
+            optionsKey="users"
+            labelKey="name"
+            valueKey="id"
+            users={[
+                { name: 'Anakin', id: 'siths1' },
+                { name: 'Luke', id: 'jedis1' },
+            ]}
+        />
+    );
+    ```
+
+#### <a name="field-numberinput"></a>NumberInput
+
+* `NumberInput` accept Antd [`InputNumber` props](https://ant.design/components/input-number/#API).
+* `NumberField` accept same props as Input plus all the [props](https://redux-form.com/7.4.2/docs/api/field.md/#props-you-can-pass-to-code-field-code-) you can pass to redux-form Field.
+
+    ```js
+    import { NumberInput, NumberField } from '@ackee/mateus';
+    ```
+
+#### <a name="field-switch"></a>Switch
+
+* `SwitchInput` accept Antd [`Switch` props](https://ant.design/components/switch/#API).
+* `SwitchField` accept same props as Input plus all the [props](https://redux-form.com/7.4.2/docs/api/field.md/#props-you-can-pass-to-code-field-code-) you can pass to redux-form Field.
+
+    ```js
+    import { SwitchInput, SwitchField } from '@ackee/mateus';
+    ```
+
+#### <a name="field-slider"></a>Slider
+
+* `SliderInput` accept Antd [`Slider` props](https://ant.design/components/slider/#API).
+* `SliderField` accept same props as Input plus all the [props](https://redux-form.com/7.4.2/docs/api/field.md/#props-you-can-pass-to-code-field-code-) you can pass to redux-form Field.
+
+    ```js
+    import { SliderInput, SliderField } from '@ackee/mateus';
+    ```
+
+#### <a name="field-radio"></a>Radio
+
+This is a bit confusing, because `RadioInput` is actually `RadioGroup` - in most cases we want to render group of radios to let user select one option so we don't need an individual `Radio`. If from any reason you realy need only one `Radio` without `RadioGroup` just feel free to use it directly from `antd`.
+
+* `RadioInput` accept Antd [`RadioGroup` props](https://ant.design/components/radio/#RadioGroup), but with several differencies
+    * the definition `options` prop is a bit changed. It lacks `disabled` field so the shape is just `{ label: ReactNode, value: string|number }`.
+    * on the other hand, as same as for [`Select`](#field-select) you can specify custom names for props and the shape keys by specifying `optionsKey`, `labelKey` or `valueKey` prop (look at example below).
+    * you can pass `button` prop of type boolean that force use of radio buttons instead of plain radios.
+
+* `RadioField` accept same props as Input plus all the [props](https://redux-form.com/7.4.2/docs/api/field.md/#props-you-can-pass-to-code-field-code-) you can pass to redux-form Field.
+
+    ```js
+    import { RadioInput, RadioField } from '@ackee/mateus';
+
+    const selectYourFavourite = (
+        <RadioInput 
+            optionsKey="southPark"
+            labelKey="name"
+            valueKey="color"
+            southPark={[
+                { name: 'Kenny', color: 'orange' },
+                { name: 'Cartman', color: 'fat' },
+                { name: 'Stan', color: 'blue' },
+                { name: 'Kyle', color: 'green' },
+            ]}
+            button
+        />
+    );
+    ```
+
+#### <a name="field-checkboxgroup"></a>CheckboxGroup
+
+* `CheckboxGroupInput` accept Antd [`CheckboxGroup` props](https://ant.design/components/checkbox/#Checkbox-Group).
+* `CheckboxGroupField` accept same props as Input plus all the [props](https://redux-form.com/7.4.2/docs/api/field.md/#props-you-can-pass-to-code-field-code-) you can pass to redux-form Field.
+
+    ```js
+    import { CheckboxGroupInput, CheckboxGroupField } from '@ackee/mateus';
+    ```
+
+#### <a name="field-pickers"></a>DatePicker & TimePicker
+
+* Both pickers accept props from [shared API](https://ant.design/components/date-picker/#Common-API) plus:
+    * `DatePickerInput` accept Antd [`DatePicker` props](https://ant.design/components/date-picker/#DatePicker).
+    * `TimePickerInput` accept Antd [`TimePicker` props](https://ant.design/components/time-picker/#API).
+    * both accept `displayFormat` prop which is the same as `format` prop defined in picker's API. But since redux-form `Field` has also `format` prop and so Input's one would be overriden when using `DatePickerField` or `TimePickerField`, wee need to provide an alternative.
+* `DatePickerField`/`TimePickerField` accept same props as `DatePickerInput`/`TimePickerInput` plus all the [props](https://redux-form.com/7.4.2/docs/api/field.md/#props-you-can-pass-to-code-field-code-) you can pass to redux-form Field.
+
+    ```js
+    import { DatePickerInput, DatePickerField, TimePickerInput, TimePickerField } from '@ackee/mateus';
+    ```
+
+#### <a name="pickerenhancer"></a>pickerEnhancer
+
+* TBD
+
+    ```js
+    import { pickerEnhancer } from '@ackee/mateus';
+    ```
 

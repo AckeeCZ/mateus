@@ -1,10 +1,20 @@
-import { combineReducers, createStore, applyMiddleware, compose, Middleware, ReducersMapObject } from 'redux';
-
+import {
+    combineReducers,
+    createStore,
+    applyMiddleware,
+    compose,
+    Middleware,
+    ReducersMapObject,
+    StoreEnhancer,
+} from 'redux';
+import { reducer as form } from 'redux-form';
 declare global {
-    interface Window { devToolsExtension?: Function; }
+    interface Window {
+        devToolsExtension?: () => (r: any) => void;
+    }
 }
 
-export default function configureStore(
+export function configureStore(
     initialState: { [key: string]: any },
     reducer: ReducersMapObject,
     ...customMiddlewares: Middleware[]
@@ -14,11 +24,16 @@ export default function configureStore(
     const middleware = applyMiddleware(...middlewares);
     const enhancer = compose(
         middleware,
-
         window.devToolsExtension ? window.devToolsExtension() : (r: any) => r,
-    );
+    ) as StoreEnhancer;
 
     const store = createStore(combineReducers(reducer), initialState, enhancer);
 
     return store;
 }
+
+const reducers = {
+    form,
+};
+
+export default configureStore({}, reducers);

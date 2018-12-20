@@ -1,6 +1,6 @@
 import { configure, addDecorator } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { setOptions } from '@storybook/addon-options';
+import { withOptions } from '@storybook/addon-options';
 
 const req = require.context('../src', true, /\.story\.(ts|js)x?$/);
 
@@ -10,9 +10,12 @@ function loadStories() {
 
 addDecorator((story, context) => withInfo('')(story)(context));
 
-setOptions({
-  hierarchySeparator: /\//,
-  hierarchyRootSeparator: /\|/,
-});
+addDecorator(
+    withOptions({
+      hierarchySeparator: /\//,
+      hierarchyRootSeparator: /\|/,
+      addonPanelInRight: true,
+    })
+);
 
 configure(loadStories, module);

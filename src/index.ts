@@ -22,4 +22,4 @@ export { default as wrapWithField } from './HOC/wrapWithField';
 
 export { default as actionTypes } from './services/actionTypes';
 export { default as submitForm } from './services/actions';
-export { default as handleSubmitFormSaga } from './services/sagas';
+export { default as submitFormSaga } from './services/sagas';

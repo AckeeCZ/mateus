@@ -1,6 +1,6 @@
 {
-    "name": "@ackee/matthew",
-    "version": "0.0.1",
+    "name": "@ackee/mateus",
+    "version": "0.1.0",
     "description": "Antd components as a form fields + redux-saga flow for easier handle of redux-form form's submit",
     "main": "lib/index.js",
     "module": "es/index.js",
@@ -22,14 +22,14 @@
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "https://github.com/AckeeCZ/matthew"
+        "url": "https://github.com/AckeeCZ/mateus"
     },
     "dependencies": {
+        "@types/lodash": "^4.14.119",
         "lodash": "^4.17.11",
         "moment": "^2.22.2",
         "react-display-name": "^0.2.4",
-        "redux-form-antd": "^3.1.4",
-        "@types/lodash": "^4.14.119"
+        "redux-form-antd": "^3.1.6"
     },
     "peerDependencies": {
         "antd": "^3.11.2",
@@ -84,6 +84,7 @@
         "redux-form": "^7.4.2",
         "redux-saga": "^0.16.2",
         "sass-loader": "^7.1.0",
+        "tslint": "^5.11.0",
         "tslint-config-ackee": "^0.2.1",
         "tslint-config-airbnb": "^5.11.1",
         "tslint-config-prettier": "^1.17.0",

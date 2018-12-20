@@ -20,7 +20,7 @@ const checkboxGroupMap = customMap(
             onFocus(e);
         },
         onBlur: () => {
-            onBlur(null);
+            onBlur(undefined);
         },
         value: !value ? defaultValue : value,
     })

@@ -1,6 +1,6 @@
 ![ackee|Mateus](https://img.ack.ee/ackee/image/github/js)
 
-# Mateus
+# Mateus [![Build Status](https://travis-ci.com/AckeeCZ/mateus.svg?branch=master)](https://travis-ci.com/AckeeCZ/mateus)
 
 > Antd components as a form fields + redux-saga flow for easier handle of redux-form form's submit.
 

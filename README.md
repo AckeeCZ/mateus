@@ -1,4 +1,4 @@
-![ackee|Mateus](https://img.ack.ee/ackee/image/github/js)
+![ackee|Mateus](./assets/ackee_git_frontend_mateus.png)
 
 # Mateus [![Build Status](https://travis-ci.com/AckeeCZ/mateus.svg?branch=master)](https://travis-ci.com/AckeeCZ/mateus)
 

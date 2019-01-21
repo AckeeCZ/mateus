@@ -1,6 +1,8 @@
 ![ackee|Mateus](./assets/ackee_git_frontend_mateus.png)
 
-# Mateus [![Build Status](https://travis-ci.com/AckeeCZ/mateus.svg?branch=master)](https://travis-ci.com/AckeeCZ/mateus)
+# [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/AckeeCZ/mateus/blob/master/LICENSE) [![CI Status](https://img.shields.io/travis/com/AckeeCZ/mateus.svg?style=flat)](https://travis-ci.com/AckeeCZ/mateus) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://reactjs.org/docs/how-to-contribute.html#your-first-pull-request) [![Dependency Status](https://img.shields.io/david/AckeeCZ/mateus.svg?style=flat-square)](https://david-dm.org/AckeeCZ/mateus)
+
+# Mateus
 
 > Antd components as a form fields + redux-saga flow for easier handle of redux-form form's submit.
 

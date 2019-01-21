@@ -23,7 +23,9 @@
 
 Using npm:
 
-`npm i -S @ackee/mateus`
+```
+npm i -S @ackee/mateus
+```
 
 ## <a name="api"></a>API
 

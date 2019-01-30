@@ -21,6 +21,7 @@
         "node_modules",
         "build",
         "lib",
+        "stories",
         "**/__tests__/**",
         "**/*.test.*",
         "**/*.story.*",

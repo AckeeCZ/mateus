@@ -9,7 +9,7 @@
         "build:types": "tsc --project tsconfig.types.json --emitDeclarationOnly",
         "build": "npm run clean && npm run type-check && npm run build:js && npm run build:types",
         "storybook": "start-storybook -p 6006",
-        "build-storybook": "cross-env BABEL_ENV=development rm -rf build && npm run build-storybook -o build",
+        "build-storybook": "cross-env BABEL_ENV=development rm -rf build && build-storybook -o build",
         "lint": "tslint \"src/**/*.{ts,tsx}\"",
         "test": "BABEL_ENV=test jest",
         "clean": "rm -rf lib",

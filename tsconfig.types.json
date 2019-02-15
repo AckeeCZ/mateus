@@ -22,8 +22,7 @@
         "build",
         "lib",
         "stories",
-        "**/__tests__/**",
-        "**/*.test.*",
+        "**/__tests__/",
         "**/*.story.*",
     ]
 }

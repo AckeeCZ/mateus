@@ -38,7 +38,7 @@ function wrapWithField<ComponentProps, InjectedProps = {}>(
             );
         }
 
-        const mergedProps: InjectedProps & ComponentProps & BaseProps = merge(injected, props);
+        const mergedProps: InjectedProps & ComponentProps & BaseProps = merge({}, injected, props);
         return (
             <Field
                 /**

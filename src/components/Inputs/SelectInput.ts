@@ -7,7 +7,7 @@ export interface OptionData {
     key: string | number;
 }
 
-// extra props that are not defined in SelectProps from antd/lib/select but rather added by redux-form-antd
+// extra props that are not defined in SelectProps from antd/es/select but rather added by redux-form-antd
 export interface SelectProps {
     multiple?: boolean;
     options: OptionData[];

@@ -1,4 +1,4 @@
-import { RadioGroupProps } from 'antd/lib/radio';
+import { RadioGroupProps } from 'antd/es/radio';
 import RadioInput from '../Inputs/RadioInput';
 import wrapWithField from '../../HOC/wrapWithField';
 

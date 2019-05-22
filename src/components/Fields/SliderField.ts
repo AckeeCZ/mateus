@@ -1,4 +1,4 @@
-import { SliderProps } from 'antd/lib/slider';
+import { SliderProps } from 'antd/es/slider';
 import SliderInput from '../Inputs/SliderInput';
 import wrapWithField from '../../HOC/wrapWithField';
 

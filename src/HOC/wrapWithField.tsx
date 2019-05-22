@@ -1,7 +1,7 @@
 import React from 'react';
 import { Field, BaseFieldProps } from 'redux-form';
 // import { Partial } from 'utility-types';
-import { FormItemProps } from 'antd/lib/form';
+import { FormItemProps } from 'antd/es/form';
 import { merge } from 'lodash';
 
 import { logger } from '../config';
@@ -47,7 +47,7 @@ function wrapWithField<ComponentProps, InjectedProps = {}>(
                  *
                  *    Type 'ComponentClass<ComponentProps, any>' is not assignable to type '"input"'
                  */
-                component={component as unknown as 'input'}
+                component={(component as unknown) as 'input'}
                 props={undefined}
                 {...mergedProps}
             />

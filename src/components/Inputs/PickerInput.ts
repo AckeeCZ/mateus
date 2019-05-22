@@ -2,10 +2,10 @@ import { FocusEvent } from 'react';
 import { Omit } from 'utility-types';
 import { customMap, createComponent } from 'redux-form-antd';
 import { WrappedFieldProps, BaseFieldProps, WrappedFieldInputProps } from 'redux-form';
-import TimePicker from 'antd/lib/time-picker';
-import DatePicker from 'antd/lib/date-picker';
-import { PickerProps as AntdPickerProps, SinglePickerProps } from 'antd/lib/date-picker/interface';
-import { FormItemProps } from 'antd/lib/form';
+import TimePicker from 'antd/es/time-picker';
+import DatePicker from 'antd/es/date-picker';
+import { PickerProps as AntdPickerProps, SinglePickerProps } from 'antd/es/date-picker/interface';
+import { FormItemProps } from 'antd/es/form';
 import moment from 'moment';
 
 import { logger } from '../../config';

@@ -1,4 +1,4 @@
-import { InputNumberProps } from 'antd/lib/input-number';
+import { InputNumberProps } from 'antd/es/input-number';
 import NumberInput from '../Inputs/NumberInput';
 import wrapWithField from '../../HOC/wrapWithField';
 

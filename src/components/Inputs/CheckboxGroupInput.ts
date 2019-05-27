@@ -1,7 +1,7 @@
 import { FocusEvent } from 'react';
 import { customMap, createComponent } from 'redux-form-antd';
 import { WrappedFieldProps } from 'redux-form';
-import { default as Checkbox } from 'antd/lib/checkbox';
+import { default as Checkbox } from 'antd/es/checkbox';
 
 const CheckboxGroup = Checkbox.Group;
 
@@ -23,7 +23,7 @@ const checkboxGroupMap = customMap(
             onBlur(undefined);
         },
         value: !value ? defaultValue : value,
-    })
+    }),
 );
 
 export default createComponent(CheckboxGroup, checkboxGroupMap);

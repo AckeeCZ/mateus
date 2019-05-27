@@ -1,4 +1,4 @@
-import { CheckboxGroupProps } from 'antd/lib/checkbox';
+import { CheckboxGroupProps } from 'antd/es/checkbox';
 import CheckboxGroupInput from '../Inputs/CheckboxGroupInput';
 import wrapWithField from '../../HOC/wrapWithField';
 

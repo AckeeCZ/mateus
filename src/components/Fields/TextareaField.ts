@@ -1,4 +1,4 @@
-import { TextAreaProps } from 'antd/lib/input';
+import { TextAreaProps } from 'antd/es/input';
 import TextAreaInput from '../Inputs/TextareaInput';
 import wrapWithField from '../../HOC/wrapWithField';
 

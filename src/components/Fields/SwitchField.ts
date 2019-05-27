@@ -1,4 +1,4 @@
-import { SwitchProps } from 'antd/lib/switch';
+import { SwitchProps } from 'antd/es/switch';
 import SwitchInput from '../Inputs/SwitchInput';
 import wrapWithField from '../../HOC/wrapWithField';
 

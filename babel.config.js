@@ -11,7 +11,7 @@ module.exports = {
                     preventFullImport: true,
                 },
                 antd: {
-                    transform: 'antd/lib/${member}',
+                    transform: 'antd/es/${member}',
                     preventFullImport: true,
                 },
             },

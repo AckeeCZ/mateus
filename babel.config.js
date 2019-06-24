@@ -9,7 +9,6 @@ module.exports = {
                 modules: process.env.BABEL_ENV === 'es' ? false : 'auto',
             },
         ],
-        ,
         '@babel/react',
     ],
     plugins: [

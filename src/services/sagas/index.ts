@@ -22,19 +22,21 @@ function* handleGeneralFormSubmit(action: Action) {
         yield put(reset(form));
     }
 
-    if (submitActionCreator) {
-        yield put({
-            ...submitActionCreator(),
-            data,
-            form,
-            initialData,
-            reset: res,
-            startSubmit: start,
-            stopSubmit: stop,
-        });
+    if (!submitActionCreator) {
+        return;
     }
+
+    yield put({
+        ...submitActionCreator(),
+        data,
+        form,
+        initialData,
+        reset: res,
+        startSubmit: start,
+        stopSubmit: stop,
+    });
 }
 
-export default function* () {
+export default function*() {
     yield takeEvery(types.FORM_SUBMIT, handleGeneralFormSubmit);
 }

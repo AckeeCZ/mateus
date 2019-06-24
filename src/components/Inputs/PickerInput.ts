@@ -30,7 +30,7 @@ const pickerMap = customMap(
         let lastChangeValue: null | moment.Moment = null;
         return {
             ...mapProps,
-            onChange: (e: any, v: string) => {
+            onChange: (_: any, v: string) => {
                 const val = moment(v, displayFormat);
                 lastChangeValue = val;
                 onChange(val);

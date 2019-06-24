@@ -4,10 +4,10 @@ import actionTypes from './actionTypes';
 
 const submitForm = <FormValues = object>(form: string, submitActionCreator: ReduxAction) => {
     return (data: FormValues): Action => ({
-        type: actionTypes.FORM_SUBMIT,
         data,
         form,
         submitActionCreator,
+        type: actionTypes.FORM_SUBMIT,
     });
 };
 

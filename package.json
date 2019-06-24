@@ -33,14 +33,14 @@
         "lodash": "^4.17.11",
         "moment": "^2.24.0",
         "react-display-name": "^0.2.4",
-        "redux-form-antd": "^3.1.6"
+        "redux-form-antd": "^3.1.9"
     },
     "peerDependencies": {
         "antd": "3.x",
         "prop-types": "15.x",
         "react": "16.x",
         "redux": "4.0.x",
-        "redux-form": "^7.4.2",
+        "redux-form": "8.2.4",
         "redux-saga": "1.0.x"
     },
     "devDependencies": {
@@ -65,7 +65,7 @@
         "@types/react-intl": "^2.3.18",
         "@types/react-redux": "^7.1.0",
         "@types/redux": "^3.6.0",
-        "@types/redux-form": "^7.4.13",
+        "@types/redux-form": "^8.1.4",
         "@types/storybook__react": "^4.0.2",
         "antd": "^3.19.8",
         "babel-jest": "^23.6.0",
@@ -89,7 +89,7 @@
         "react-intl": "2.9.x",
         "react-redux": "7.1.x",
         "redux": "4.0.x",
-        "redux-form": "^7.4.2",
+        "redux-form": "8.2.4",
         "redux-saga": "1.0.x",
         "sass-loader": "7.1.x",
         "ts-jest": "^23.10.5",

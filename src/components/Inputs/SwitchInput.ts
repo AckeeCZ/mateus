@@ -3,7 +3,7 @@ import Switch from 'antd/es/switch';
 import { customMap, createComponent } from 'redux-form-antd';
 import { WrappedFieldProps } from 'redux-form';
 
-const switchMap = customMap((mapProps, { input: { onChange, onBlur, onFocus, value } }: WrappedFieldProps) => ({
+const switchMap = customMap((mapProps: object, { input: { onChange, onBlur, onFocus, value } }: WrappedFieldProps) => ({
     ...mapProps,
     onChange,
     onFocus: (e: FocusEvent) => {

@@ -31,10 +31,11 @@ npm i -S @ackee/mateus
 
 ### <a name="action-creators"></a>Action creators
 
-#### <a name="submit-form-action-creator"></a>`submitForm(formId: string, submitActionCreator: () => object): function`
+#### <a name="submit-form-action-creator"></a>`submitForm(formId: string, submitActionCreator: () => object, customData?: object): function`
 
 - `formId` Form unique identificator
 - `submitActionCreator` Action creator for form specific submit action 
+- `customData` Object with custom data (e.g. URL parameter, redux dispatch function,..)
 - Returns Form submit handler that is used for `handleSubmit` prop of `redux-form` `Form`.
 
     Example - use `submitForm` in `react-redux` container
@@ -57,9 +58,9 @@ npm i -S @ackee/mateus
                 initialValues: {
                 },
             }),
-            dispatch => ({
+            (dispatch, ownProps) => ({
                 onSubmit: bindActionCreators(
-                    formActions.submitForm(formId, createUserAction),
+                    formActions.submitForm(formId, createUserAction, { someProp: ownProps.someProp }),
                     dispatch,
                 ),
             }),
